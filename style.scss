@@ -1,20 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 // ### primary
-$gradient: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+$gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+$purple: hsl(237, 63%, 64%);
 // ### neutral
 $very-light: hsl(240, 78%, 98%);
 $light: hsl(234, 14%, 74%);
 $regular: hsl(233, 13%, 49%);
 $dark: hsl(232, 13%, 33%);
 
+$fs-xxl: 4.5rem;
 $fs-xl: 2.2rem;
-$fs-l: 1.5rem;
+$fs-l: 1.2rem;
 $fs-m: 1rem;
+$fs-s: 0.9rem;
+$fs-xs: 0.5rem;
 
-$gap-l: 5rem;
-$gap-m: 2rem;
-$gap-s: 1rem;
+$gap-xl: 5rem;
+$gap-l: 1.8rem;
+$gap-m: 1rem;
+$gap-s: 0.5rem;
 
 @mixin flex-column-center {
 	display: flex;
@@ -30,13 +35,16 @@ $gap-s: 1rem;
 }
 
 body {
+	background-image: url(./images/bg-top.svg);
+	background-repeat: no-repeat;
+	background-position: top -2rem right -12rem;
 	background-color: $very-light;
 }
 
 .header {
 	@include flex-column-center;
-	gap: $gap-m;
-	margin: $gap-l auto;
+	gap: $gap-l;
+	margin: $gap-xl auto;
 
 	&__title {
 		font-size: $fs-xl;
@@ -46,7 +54,7 @@ body {
 	.toggle {
 		display: flex;
 		align-items: center;
-		gap: $gap-m;
+		gap: $gap-l;
 		cursor: pointer;
 
 		&__option {
@@ -63,7 +71,7 @@ body {
 		&__box {
 			height: 2rem;
 			width: 4rem;
-			background-image: $gradient;
+			background-image: linear-gradient(to right, $gradient);
 			border-radius: 100px;
 			padding: 0.25rem;
 		}
@@ -75,4 +83,99 @@ body {
 			border-radius: 100%;
 		}
 	}
+}
+
+.card-container {
+	margin: 0 $gap-l;
+	@include flex-column-center;
+	gap: $gap-l;
+}
+
+.card {
+	@include flex-column-center;
+	gap: $gap-m;
+	padding: $gap-l;
+	border-radius: 10px;
+	width: 100%;
+
+	&--light {
+		background-color: white;
+	}
+
+	&--dark {
+		background-image: linear-gradient(to bottom right, $gradient);
+	}
+
+	&__plan {
+		font-size: $fs-l;
+
+		&--light {
+			color: $regular;
+		}
+		&--dark {
+			color: $very-light;
+		}
+	}
+
+	&__price {
+		font-size: $fs-xxl;
+		display: flex;
+		align-items: center;
+		gap: 0.1ch;
+
+		&--light {
+			color: $dark;
+		}
+		&--dark {
+			color: $very-light;
+		}
+
+		&::before {
+			content: "$";
+			font-size: 0.5em;
+		}
+	}
+
+	&__divider {
+		border: none;
+		width: 100%;
+		border-top: 1px solid $light;
+	}
+
+	&__feature {
+		font-size: $fs-s;
+
+		&--light {
+			color: $regular;
+		}
+		&--dark {
+			color: $very-light;
+		}
+	}
+
+	&__button {
+		border: none;
+		border-radius: 0.5rem;
+		width: 100%;
+		height: 5ch;
+		text-transform: uppercase;
+		font-size: $fs-s;
+		letter-spacing: 0.25ch;
+		margin-top: $gap-m;
+
+		&--light {
+			color: $very-light;
+			background-image: linear-gradient(to right, $gradient);
+		}
+		&--dark {
+			color: $purple;
+			background-color: $very-light;
+		}
+	}
+}
+
+.footer {
+	font-size: $fs-xs;
+	margin-top: $gap-l;
+	text-align: center;
 }
