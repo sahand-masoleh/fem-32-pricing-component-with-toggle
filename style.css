@@ -4,4 +4,48 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: hsl(240deg, 78%, 98%);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 5rem auto;
+}
+.header__title {
+  font-size: 2.2rem;
+  color: hsl(233deg, 13%, 49%);
+}
+.header .toggle {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
+.header .toggle__option {
+  font-size: 1rem;
+  color: hsl(234deg, 14%, 74%);
+}
+.header .toggle__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.header .toggle__box {
+  height: 2rem;
+  width: 4rem;
+  background-image: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
+  border-radius: 100px;
+  padding: 0.25rem;
+}
+.header .toggle__knob {
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 100%;
 }/*# sourceMappingURL=style.css.map */
