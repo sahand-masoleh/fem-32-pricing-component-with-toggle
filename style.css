@@ -12,6 +12,18 @@ body {
   background-position: top -2rem right -12rem;
   background-color: hsl(240deg, 78%, 98%);
 }
+@media screen and (min-width: 720px) {
+  body {
+    background-position: top right;
+  }
+  body::after {
+    position: fixed;
+    content: url(./images/bg-bottom.svg);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
 
 .header {
   display: flex;
@@ -78,6 +90,14 @@ body {
   align-items: center;
   gap: 1.8rem;
 }
+@media screen and (min-width: 720px) {
+  .card-container {
+    flex-direction: row;
+    gap: 0;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+}
 
 .card {
   display: flex;
@@ -87,6 +107,7 @@ body {
   padding: 1.8rem;
   border-radius: 10px;
   width: 100%;
+  box-shadow: 0 1rem 2rem 0 rgba(105, 111, 221, 0.15);
 }
 .card--light {
   background-color: white;
@@ -105,9 +126,15 @@ body {
 }
 .card__price {
   font-size: 4.5rem;
+  letter-spacing: min(-1ch + 15vw, 0ch);
   display: flex;
   align-items: center;
   gap: 0.1ch;
+}
+@media screen and (min-width: 720px) {
+  .card__price {
+    letter-spacing: min(-1ch + 5vw, 0ch);
+  }
 }
 .card__price--light {
   color: hsl(232deg, 13%, 33%);

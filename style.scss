@@ -1,3 +1,4 @@
+@use "sass:color";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 // ### primary
@@ -21,6 +22,8 @@ $gap-l: 1.8rem;
 $gap-m: 1rem;
 $gap-s: 0.5rem;
 
+$break-point: 720px;
+
 @mixin flex-column-center {
 	display: flex;
 	flex-direction: column;
@@ -39,6 +42,18 @@ body {
 	background-repeat: no-repeat;
 	background-position: top -2rem right -12rem;
 	background-color: $very-light;
+
+	@media screen and (min-width: $break-point) {
+		background-position: top right;
+
+		&::after {
+			position: fixed;
+			content: url(./images/bg-bottom.svg);
+			left: 0;
+			bottom: 0;
+			z-index: -1;
+		}
+	}
 }
 
 .header {
@@ -108,6 +123,13 @@ body {
 	margin: 0 $gap-l;
 	@include flex-column-center;
 	gap: $gap-l;
+
+	@media screen and (min-width: $break-point) {
+		flex-direction: row;
+		gap: 0;
+		max-width: 70rem;
+		margin: 0 auto;
+	}
 }
 
 .card {
@@ -116,6 +138,7 @@ body {
 	padding: $gap-l;
 	border-radius: 10px;
 	width: 100%;
+	box-shadow: 0 1rem 2rem 0 color.adjust($purple, $alpha: -0.85);
 
 	&--light {
 		background-color: white;
@@ -138,9 +161,14 @@ body {
 
 	&__price {
 		font-size: $fs-xxl;
+		letter-spacing: min(calc((-1ch + 15vw)), 0ch);
 		display: flex;
 		align-items: center;
 		gap: 0.1ch;
+
+		@media screen and (min-width: $break-point) {
+			letter-spacing: min(calc((-1ch + 5vw)), 0ch);
+		}
 
 		&--light {
 			color: $dark;
