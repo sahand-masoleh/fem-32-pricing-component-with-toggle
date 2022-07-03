@@ -36,8 +36,11 @@ body {
 }
 .header .toggle__input {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -100px;
+  left: -100px;
+}
+.header .toggle__input:focus ~ .toggle__box {
+  outline: 2px solid blue;
 }
 .header .toggle__box {
   height: 2rem;
@@ -45,12 +48,20 @@ body {
   background-image: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   border-radius: 100px;
   padding: 0.25rem;
+  display: flex;
 }
 .header .toggle__knob {
   height: 100%;
   aspect-ratio: 1;
   background-color: white;
-  border-radius: 100%;
+  border-radius: 50%;
+  transition: all 0.25s;
+}
+.header .toggle__knob--right {
+  margin-left: calc(100% - 1.5rem);
+}
+.header .toggle__knob--left {
+  margin-left: 0;
 }
 
 .card-container {
@@ -124,6 +135,7 @@ body {
   font-size: 0.9rem;
   letter-spacing: 0.25ch;
   margin-top: 1rem;
+  cursor: pointer;
 }
 .card__button--light {
   color: hsl(240deg, 78%, 98%);

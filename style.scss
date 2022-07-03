@@ -64,8 +64,12 @@ body {
 
 		&__input {
 			position: absolute;
-			top: 0;
-			left: 0;
+			top: -100px;
+			left: -100px;
+
+			&:focus ~ .toggle__box {
+				outline: 2px solid blue;
+			}
 		}
 
 		&__box {
@@ -74,13 +78,23 @@ body {
 			background-image: linear-gradient(to right, $gradient);
 			border-radius: 100px;
 			padding: 0.25rem;
+			display: flex;
 		}
 
 		&__knob {
 			height: 100%;
 			aspect-ratio: 1;
 			background-color: white;
-			border-radius: 100%;
+			border-radius: 50%;
+			transition: all 0.25s;
+
+			&--right {
+				margin-left: calc(100% - 1.5rem);
+			}
+
+			&--left {
+				margin-left: 0;
+			}
 		}
 	}
 }
@@ -162,6 +176,7 @@ body {
 		font-size: $fs-s;
 		letter-spacing: 0.25ch;
 		margin-top: $gap-m;
+		cursor: pointer;
 
 		&--light {
 			color: $very-light;
