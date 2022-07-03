@@ -112,8 +112,23 @@ body {
 .card--light {
   background-color: white;
 }
+@media screen and (min-width: 720px) {
+  .card--light:nth-of-type(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .card--light:nth-of-type(3) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
 .card--dark {
   background-image: linear-gradient(to bottom right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
+}
+@media screen and (min-width: 720px) {
+  .card--dark {
+    padding: 3.8rem 1.8rem;
+  }
 }
 .card__plan {
   font-size: 1.2rem;
