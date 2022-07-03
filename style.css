@@ -29,6 +29,10 @@ body {
   align-items: center;
   gap: 1.8rem;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .header .toggle__option {
   font-size: 1rem;
@@ -39,7 +43,7 @@ body {
   top: -100px;
   left: -100px;
 }
-.header .toggle__input:focus ~ .toggle__box {
+.header .toggle__input:focus-visible ~ .toggle__box {
   outline: 2px solid blue;
 }
 .header .toggle__box {
@@ -49,6 +53,9 @@ body {
   border-radius: 100px;
   padding: 0.25rem;
   display: flex;
+}
+.header .toggle__box:hover {
+  opacity: 0.5;
 }
 .header .toggle__knob {
   height: 100%;
@@ -141,9 +148,20 @@ body {
   color: hsl(240deg, 78%, 98%);
   background-image: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
 }
+.card__button--light:hover {
+  color: hsl(237deg, 63%, 64%);
+  outline: 1px solid currentColor;
+  background-image: none;
+  background-color: transparent;
+}
 .card__button--dark {
   color: hsl(237deg, 63%, 64%);
   background-color: hsl(240deg, 78%, 98%);
+}
+.card__button--dark:hover {
+  color: hsl(240deg, 78%, 98%);
+  outline: 1px solid currentColor;
+  background-color: transparent;
 }
 
 .footer {

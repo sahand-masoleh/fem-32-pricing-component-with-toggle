@@ -56,6 +56,7 @@ body {
 		align-items: center;
 		gap: $gap-l;
 		cursor: pointer;
+		user-select: none;
 
 		&__option {
 			font-size: $fs-m;
@@ -67,7 +68,7 @@ body {
 			top: -100px;
 			left: -100px;
 
-			&:focus ~ .toggle__box {
+			&:focus-visible ~ .toggle__box {
 				outline: 2px solid blue;
 			}
 		}
@@ -79,6 +80,10 @@ body {
 			border-radius: 100px;
 			padding: 0.25rem;
 			display: flex;
+
+			&:hover {
+				opacity: 0.5;
+			}
 		}
 
 		&__knob {
@@ -181,10 +186,23 @@ body {
 		&--light {
 			color: $very-light;
 			background-image: linear-gradient(to right, $gradient);
+
+			&:hover {
+				color: $purple;
+				outline: 1px solid currentColor;
+				background-image: none;
+				background-color: transparent;
+			}
 		}
 		&--dark {
 			color: $purple;
 			background-color: $very-light;
+
+			&:hover {
+				color: $very-light;
+				outline: 1px solid currentColor;
+				background-color: transparent;
+			}
 		}
 	}
 }
